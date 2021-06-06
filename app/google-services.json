@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "919007304412",
+    "project_id": "langar-sewa-a7f01",
+    "storage_bucket": "langar-sewa-a7f01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:919007304412:android:fd3d95437d016f11873219",
+        "android_client_info": {
+          "package_name": "com.android.adminapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "919007304412-o5r47ekold5c8d9lfq7cuhhrrd0973qe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVFS9aYxRoMASP0SdjnNEmVaVBasWmY9Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "919007304412-o5r47ekold5c8d9lfq7cuhhrrd0973qe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:919007304412:android:7b9d5dc680be28eb873219",
+        "android_client_info": {
+          "package_name": "com.android.langarseva"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "919007304412-o5r47ekold5c8d9lfq7cuhhrrd0973qe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVFS9aYxRoMASP0SdjnNEmVaVBasWmY9Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "919007304412-o5r47ekold5c8d9lfq7cuhhrrd0973qe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

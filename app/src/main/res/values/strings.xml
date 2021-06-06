@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Admin Application</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+
+
+    <string name="mobile">Enter Your Mobile Number Here</string>
+    <string name="city">Enter Your City</string>
+
+
+    <string name="title_all_requests">All Requests</string>
+    <string name="title_add_requests">Add Requests</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_history">History</string>
+    <string name="auth_welcome">Welcome \nTo Langar Sewa</string>
+    <string name="validatePhone">Verify Mobile Number</string>
+</resources>
+
