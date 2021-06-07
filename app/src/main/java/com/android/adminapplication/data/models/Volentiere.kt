@@ -9,15 +9,15 @@ data class Volentiere(
 
     val id:String,
     val phone: String,
-    val token: String? = null,
+    val token: String,
     val address :String?,
-    val address2 :String?,
     val city :String?,
     val state :String?,
     val country :String?,
-    val postalCode :String?,
-    val knownName :String?,
+    val pincode :String?,
+    val knownname :String?,
     val status:String?,
+
 
 
     @PrimaryKey

@@ -33,7 +33,7 @@ class UserRepository(val context: Context) : SafeApiRequest() {
 
     suspend fun verifyOtp(phone: String, otp: String, fcmToken: String?): Volentiere {
 
-        return apiRequest { NetworkInterface.invoke().verifyOtp(phone,otp,fcmToken,"user") }
+        return apiRequest { NetworkInterface.invoke().verifyOtp(phone,otp,fcmToken) }
 
     }
 

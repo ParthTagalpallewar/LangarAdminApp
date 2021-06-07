@@ -8,10 +8,10 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface UserDao {
 
-    @Query("Select * FROM user_table WHERE uId = :id")
+    @Query("Select * FROM volentiereTable WHERE uId = :id")
     fun getCurrentUser(id: Int = Volentiere_Primary_key): Volentiere?
 
-    @Query("Select * FROM `user_table` WHERE uId = :id")
+    @Query("Select * FROM `volentiereTable` WHERE uId = :id")
     fun getCurrentUserFlow(id: Int = Volentiere_Primary_key): Flow<Volentiere?>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -20,10 +20,10 @@ interface UserDao {
     @Update
     fun updateUser(volentiere: Volentiere): Int
 
-    @Query("UPDATE USER_TABLE SET token = :deviceId WHERE id = :uId")
+    @Query("UPDATE volentiereTable SET token = :deviceId WHERE Uid = :uId")
     fun updateDeviceId(uId: Int = Volentiere_Primary_key, deviceId: String):Unit
 
 
-    @Query("DELETE FROM `user_table` Where Uid = :id")
+    @Query("DELETE FROM `volentiereTable` Where Uid = :id")
     fun logOut(id: Int = Volentiere_Primary_key)
 }

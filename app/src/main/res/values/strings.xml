@@ -10,9 +10,11 @@
 
     <string name="title_all_requests">All Requests</string>
     <string name="title_add_requests">Add Requests</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_profile">Profile</string>
     <string name="title_history">History</string>
     <string name="auth_welcome">Welcome \nTo Langar Sewa</string>
     <string name="validatePhone">Verify Mobile Number</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
 

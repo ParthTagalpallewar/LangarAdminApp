@@ -34,6 +34,7 @@ class AuthFragment : Fragment(R.layout.fragment_auth){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //showing phone number of users hint dialogue
         showHint2()
 
         binding.ccpCountryCode.setDefaultCountryUsingNameCode("+91")
@@ -48,47 +49,56 @@ class AuthFragment : Fragment(R.layout.fragment_auth){
                 }
             } else {
 
-                var finalUserPhone: String? = null
+               if((phoneNumberOnEditTextView.length == 10) or (phoneNumberOnEditTextView.length == 13)) {
+                    var finalUserPhone: String? = null
 
-                 if (phoneNumberOnEditTextView[0] == '+') {
-                   finalUserPhone =  phoneNumberOnEditTextView
-                } else {
-                    val code = binding.ccpCountryCode.selectedCountryCode
-                    val phoneWithCountry:String = "+" + code + phoneNumberOnEditTextView
-                    finalUserPhone = phoneWithCountry
-                }
+                   finalUserPhone = if (phoneNumberOnEditTextView[0] == '+') {
+                       phoneNumberOnEditTextView
+                   } else {
+                       val code = binding.ccpCountryCode.selectedCountryCode
+                       val phoneWithCountry: String = "+" + code + phoneNumberOnEditTextView
+                       phoneWithCountry
+                   }
 
-                Log.e(TAG, "onViewCreated: phone form auth to text ${finalUserPhone.toString()}")
+                    Log.e(
+                        TAG,
+                        "onViewCreated: phone form auth to text ${finalUserPhone.toString()}"
+                    )
 
-                val userRepo = UserRepository(requireContext())
-                viewLifecycleOwner.lifecycleScope.launch {
-                    try {
-                        binding.progressBar.visible()
-                        val sendOtpResponse =  userRepo.sendSmsToNumber(finalUserPhone)
-                        if(sendOtpResponse.result == "success"){
-                            withContext(Dispatchers.Main){
+                    val userRepo = UserRepository(requireContext())
+                    viewLifecycleOwner.lifecycleScope.launch {
+                        try {
+                            binding.progressBar.visible()
+                            val sendOtpResponse = userRepo.sendSmsToNumber(finalUserPhone)
+                            if (sendOtpResponse.result == "success") {
+                                withContext(Dispatchers.Main) {
 
-                                delay(1000 * 4)
-                                val fragment = VerifyOtpFragment()
-                                val bundle = Bundle()
-                                bundle.putString("argumentPhoneNumber", finalUserPhone)
+                                    delay(1000 * 4)
+                                    val fragment = VerifyOtpFragment()
+                                    val bundle = Bundle()
+                                    bundle.putString("argumentPhoneNumber", finalUserPhone)
 
 
-                                fragment.arguments = bundle
+                                    fragment.arguments = bundle
 
-                                 requireActivity().supportFragmentManager.beginTransaction().replace(
-                                     R.id.splash_container, fragment
-                                 ).commit()
-                            binding.progressBar.visible(false);
+                                    requireActivity().supportFragmentManager.beginTransaction()
+                                        .replace(
+                                            R.id.splash_container, fragment
+                                        ).commit()
+                                    binding.progressBar.visible(false);
+                                }
                             }
-                        }
-                    } catch (e: Exception) {
-                        binding.progressBar.visible(false);
-                        if (e is ApiException){
-                            binding.root.snackBar(e.message.toString())
+                        } catch (e: Exception) {
+                            binding.progressBar.visible(false);
+                            if (e is ApiException) {
+                                binding.root.snackBar(e.message.toString())
+                            }
                         }
                     }
                 }
+                else{
+                    requireView().snackBar("Phone Number Should be 10 digits or 12 digits with (+91)")
+               }
             }
         }
     }

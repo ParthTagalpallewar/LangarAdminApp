@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Application"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.auth.AuthSelection"></activity>
+
         <activity android:name=".ui.splash.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
